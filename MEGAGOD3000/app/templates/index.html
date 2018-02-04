@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<title>MEGAGOD3000</title>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			if('speechSynthesis' in window){
+				var text = document.getElementById('sacredText').innerHTML;
+				console.log('meeee');
+				var speech = new SpeechSynthesisUtterance(text);
+				speech.lang = 'en-US';
+				window.speechSynthesis.speak(speech);
+				console.log('spoken');
+			}};
+		</script>
+
+	<link href='{{ url_for('static', filename='vidback.css') }}' rel='stylesheet'	type='text/css'>
+
+	</head>
+
+
+	<body style="background-color: blue">
+		<div id = 'text_div'>
+		<marquee behavior="scroll" direction="up" scrollamount=3.5 style="padding:10px; height:100%; width:100%;">
+			<h1 id = 'sacredText' style="color:white; text-align: justify;">{{sacredText}}</h1>
+		</marquee>
+	</div>
+	</body>
+
+	<video autoplay loop id="video-background" muted plays-inline>
+		<source src="{{videoPath}}" type="video/mp4">
+		</video>
+
+		<audio autoplay loop>
+			<source src="{{soundPath}}" type="audio/mpeg" volume = '0.6'>
+			</audio>
+
+			<button onclick="monetize()" style="position: absolute; right: 100px; top: 150px;">E-COMMERCE</button>
+			<script type="text/javascript">function monetize() {
+				prompt("Please enter credit card number");
+			}</script>
+
+
+			</html>
